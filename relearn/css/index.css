@@ -1,0 +1,18 @@
+/* Styles specific to index.html */
+body {
+    /* Sets the default font for the page, as imported in the HTML */
+    font-family: 'Poppins', sans-serif;
+}
+
+#hero-section {
+    /* This creates the background effect:
+      1. A semi-transparent blue linear-gradient for the "blue effect".
+      2. The college background image URL.
+    */
+    background-image: linear-gradient(rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.3)), url('https://res.cloudinary.com/diy6nhly9/image/upload/q_auto,f_auto/v1757657459/2_ryvu5x.jpg');
+    
+    /* Ensures the image covers the whole area without distortion */
+    background-size: cover;
+    background-position: center;
+}
+

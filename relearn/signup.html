@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ReLearN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Signup-specific Stylesheet -->
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+<body class="bg-white font-poppins">
+
+    <!-- Navigation Bar (Consistent with index.html) -->
+    <nav class="fixed top-0 left-0 right-0 bg-blue-100 p-2 w-full shadow-md z-20 transition-colors duration-300 hover:bg-blue-200">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="https://res.cloudinary.com/diy6nhly9/image/upload/v1757664318/Unconfirmed_12918_lkc7vq.png" alt="ReLearN Logo" class="h-10 w-auto">
+                    <h1 class="text-xl font-bold tracking-wider text-[#1976D2]">ReLearN</h1>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="min-h-screen flex items-center justify-center pt-20 px-4">
+        <div class="bg-blue-100 p-8 rounded-lg shadow-lg w-full max-w-lg">
+            <h2 class="text-3xl font-bold text-center text-[#1976D2] mb-6">Create Your Account</h2>
+            
+            <form id="signup-form" class="space-y-4">
+                <!-- Full Name -->
+                <div>
+                    <label for="fullname" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" required
+                           class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#1976D2] focus:border-[#1976D2]">
+                </div>
+
+                <!-- College Email -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">College Email</label>
+                    <input type="email" id="email" name="email" required
+                           title="Please enter a valid @mictech.edu.in email address."
+                           class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#1976D2] focus:border-[#1976D2]">
+                </div>
+
+                <!-- Registration Number -->
+                <div>
+                    <label for="regno" class="block text-sm font-medium text-gray-700">Registration Number</label>
+                    <input type="text" id="regno" name="regno" required
+                           class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#1976D2] focus:border-[#1976D2]">
+                </div>
+
+                <!-- Department -->
+                <div>
+                    <label for="department" class="block text-sm font-medium text-gray-700">Department</label>
+                    <select id="department" name="department" required
+                            class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#1976D2] focus:border-[#1976D2]">
+                        <option value="">Select your branch</option>
+                        <option value="CSE">Computer Science & Engineering (CSE)</option>
+                        <option value="ECE">Electronics & Communication Engineering (ECE)</option>
+                        <option value="EEE">Electrical & Electronics Engineering (EEE)</option>
+                        <option value="MECH">Mechanical Engineering (MECH)</option>
+                        <option value="CIVIL">Civil Engineering (CIVIL)</option>
+                        <option value="IT">Information Technology (IT)</option>
+                    </select>
+                </div>
+
+                <!-- Semester -->
+                <div>
+                    <label for="semester" class="block text-sm font-medium text-gray-700">Semester</label>
+                    <select id="semester" name="semester" required
+                            class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#1976D2] focus:border-[#1976D2]">
+                        <option value="">Select your semester</option>
+                        <option value="1">1st Semester</option>
+                        <option value="2">2nd Semester</option>
+                        <option value="3">3rd Semester</option>
+                        <option value="4">4th Semester</option>
+                        <option value="5">5th Semester</option>
+                        <option value="6">6th Semester</option>
+                        <option value="7">7th Semester</option>
+                        <option value="8">8th Semester</option>
+                    </select>
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" required
+                           title="Password must be 10 characters long and meet the specified criteria."
+                           class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#1976D2] focus:border-[#1976D2]">
+                </div>
+
+                <!-- Confirm Password -->
+                <div>
+                    <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required
+                           class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#1976D2] focus:border-[#1976D2]">
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="flex items-center">
+                    <input id="terms" name="terms" type="checkbox" required
+                           class="h-4 w-4 text-[#1976D2] focus:ring-[#1976D2] border-gray-300 rounded">
+                    <label for="terms" class="ml-2 block text-sm text-gray-900">
+                        I accept the <a href="#" class="text-[#1976D2] hover:underline">Terms and Conditions</a>.
+                    </label>
+                </div>
+
+                <!-- Sign Up Button -->
+                <div>
+                    <button type="submit"
+                            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#1976D2] hover:bg-[#1565C0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1976D2]">
+                        Sign Up
+                    </button>
+                </div>
+            </form>
+
+            <p class="mt-4 text-center text-sm text-gray-600">
+                Already have an account? 
+                <a href="login.html" class="font-medium text-[#1976D2] hover:underline">
+                    Log In
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup-specific JavaScript -->
+    <script src="js/signup.js"></script>
+</body>
+</html>
+

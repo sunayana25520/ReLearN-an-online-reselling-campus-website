@@ -1,0 +1,10 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Default body font */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* You can add any additional signup-page-specific styles here if needed */
+
