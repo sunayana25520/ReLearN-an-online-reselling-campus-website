@@ -1,44 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Get references to the interactive elements on the page.
     const itemsGrid = document.getElementById('items-grid');
     const searchBar = document.getElementById('search-bar');
     const categoryFilter = document.getElementById('category-filter');
 
-    let allItems = [];
+    let allItems = []; // This will hold all items fetched from storage.
 
     // A predefined list of default items to show if localStorage is empty.
-    const defaultItems = [
-        { id: 101, title: 'Casio FX-991MS Calculator', category: 'Calculator', condition: 'Good', price: 800, description: 'Slightly used scientific calculator, perfect for engineering courses.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759491642/casio-fx-991ms-2nd-gen-scientific-calculator-401-functions-and-button-cell-battery-powered--removebg-preview_w2f5we.png', seller: 'Priya', branch: 'CSE', listingType: 'For Sale' },
+    const defaultGiveawayItems = [
         { id: 102, title: 'Texas Instruments BA II Plus', category: 'Calculator', condition: 'New', price: null, description: 'Financial calculator, looking to swap for a good drafter.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759556163/71xloBRen6L._AC_UF1000_1000_QL80_-removebg-preview_x7o7y0.png', seller: 'Rakesh', branch: 'ECE', listingType: 'Exchange' },
         { id: 103, title: 'Complete Engineering Drawing Kit', category: 'Drawing Kit', condition: 'Fair', price: 0, description: 'Full set of drawing instruments including drafter. Free for anyone who needs it.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759491645/619a6358-5460-4660-a1c8-109051829370-removebg-preview_d5eifp.png', seller: 'Harika', branch: 'ME', listingType: 'Giveaway' },
-        { id: 104, title: 'Artist Grade Drawing Pencils', category: 'Drawing Kit', condition: 'New', price: 900, description: 'Unused set of artist-grade pencils, charcoal, and sketchpad.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759556166/71PAL-n5D8L._AC_UF1000_1000_QL80_-removebg-preview_es9l9m.png', seller: 'Venu', branch: 'Civil', listingType: 'For Sale' },
-        { id: 115, title: 'Architectural Drawing Kit', category: 'Drawing Kit', condition: 'Good', price: 750, description: 'A complete kit for architectural students, includes T-square.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759564085/Gemini_Generated_Image_658ghi658ghi658g_pqrstu.jpg', seller: 'Aditi Rao', branch: 'Architecture', listingType: 'For Sale'},
-        { id: 116, title: 'Basic Sketching Set', category: 'Drawing Kit', condition: 'New', price: 400, description: 'Includes various grades of pencils and a sketchbook. Perfect for beginners.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759564082/Gemini_Generated_Image_30x6fy30x6fy30x6_jklmno.jpg', seller: 'Karan Singh', branch: 'Fine Arts', listingType: 'For Sale'},
         { id: 105, title: 'White Lab Apron (Medium)', category: 'Lab Apron', condition: 'New', price: null, description: 'Brand new, unused white lab coat. Will trade for a textbook.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759492651/images-removebg-preview_jovq5y.png', seller: 'Teja', branch: 'Chemical', listingType: 'Exchange' },
-        { id: 106, title: 'Full-Sleeve Lab Coat (Large)', category: 'Lab Apron', condition: 'Good', price: 250, description: 'Gently used large-sized lab coat. No stains.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759564070/613c32aa85040a6b7a2d4b29-removebg-preview_fwtw63.png', seller: 'Priya', branch: 'CSE', listingType: 'For Sale' },
-        { id: 107, title: 'Higher Engineering Mathematics', category: 'Textbooks', condition: 'Good', price: 450, description: 'The essential textbook for engineering mathematics by B.S. Grewal.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759492654/9789351920422-removebg-preview_wovfwe.png', seller: 'Rakesh', branch: 'ECE', listingType: 'For Sale' },
         { id: 108, title: 'Organic Chemistry by Morrison & Boyd', category: 'Textbooks', condition: 'Fair', price: 0, description: 'Classic textbook for organic chemistry. Has some highlighted pages.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759556160/414i-OCiH-L._AC_UF1000_1000_QL80_-removebg-preview_e7v1y9.png', seller: 'Teja', branch: 'Chemical', listingType: 'Giveaway' },
-        { id: 109, title: 'Mini Drafter for Students', category: 'Drafter', condition: 'Good', price: 250, description: 'Standard mini drafter, essential for first-year engineering drawing.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759556157/61pZWV4qA5L._AC_UF1000_1000_QL80_-removebg-preview_u7gztc.png', seller: 'Venu', branch: 'Civil', listingType: 'For Sale' },
         { id: 110, title: 'Omega Mini Drafter', category: 'Drafter', condition: 'Fair', price: null, description: 'A used Omega brand mini drafter, fully functional. Willing to trade.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759564073/71vKa5D-L6L._AC_UF1000_1000_QL80_-removebg-preview_thkkfg.png', seller: 'Harika', branch: 'ME', listingType: 'Exchange' },
         { id: 111, title: 'Workshop Safety Goggles', category: 'Lab Materials', condition: 'New', price: 0, description: 'Unused, scratch-resistant safety goggles for workshop and lab use.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759560411/51o2m2g248L._AC_UF1000_1000_QL80_-removebg-preview_j8hwqg.png', seller: 'Rakesh', branch: 'ECE', listingType: 'Giveaway' },
-        { id: 112, title: 'Breadboard and Jumper Wires Set', category: 'Lab Materials', condition: 'Good', price: 300, description: 'A complete set for electronics lab projects.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759564076/71e-c7E-FcL._AC_UF1000_1000_QL80_-removebg-preview_kgisza.png', seller: 'Priya', branch: 'CSE', listingType: 'For Sale' },
-        { id: 113, title: 'Mobile Phone Stand', category: 'Other', condition: 'Fair', price: 100, description: 'A simple and useful mobile phone stand for your desk.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759560414/61F-8-q1pVL._AC_UF1000_1000_QL80_-removebg-preview_t2p7jo.png', seller: 'Harika', branch: 'ME', listingType: 'For Sale' },
         { id: 114, title: 'College Backpack', category: 'Other', condition: 'Good', price: null, description: 'Sturdy backpack with multiple compartments. Want to exchange for a calculator.', image: 'https://res.cloudinary.com/diy6nhly9/image/upload/v1759564079/61a-T6tK-SL._AC_UY1100_-removebg-preview_n5hfgq.png', seller: 'Venu', branch: 'Civil', listingType: 'Exchange' }
     ];
 
+    /**
+     * Renders a filtered list of items to the page.
+     * @param {Array} itemsToDisplay - The array of item objects to be displayed.
+     */
     const renderItems = (itemsToDisplay) => {
         if (!itemsGrid) return;
         itemsGrid.innerHTML = '';
 
         if (itemsToDisplay.length === 0) {
-            itemsGrid.innerHTML = `<p class="text-gray-500 col-span-full text-center">No items found.</p>`;
+            itemsGrid.innerHTML = `<p class="text-gray-500 col-span-full text-center">No giveaway or exchange items found.</p>`;
             return;
         }
-
-        // Sort items: "For Sale" first, then "Exchange", then "Giveaway"
-        itemsToDisplay.sort((a, b) => {
-            const order = { "For Sale": 1, "Exchange": 2, "Giveaway": 3 };
-            return (order[a.listingType] || 4) - (order[b.listingType] || 4);
-        });
 
         itemsToDisplay.forEach(item => {
             const card = document.createElement('div');
@@ -80,8 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 priceHTML = `<p class="item-card-price">Free</p>`;
             } else if (item.listingType === 'Exchange') {
                 priceHTML = `<p class="item-card-price">Swap / Trade</p>`;
-            } else {
-                priceHTML = `<p class="item-card-price">₹${item.price || 'N/A'}</p>`;
             }
 
             let innerHTML = `
@@ -102,6 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    /**
+     * Fetches items, applies filters, and triggers rendering.
+     */
     const filterAndRender = () => {
         const searchTerm = searchBar.value.toLowerCase();
         const selectedCategory = categoryFilter.value;
@@ -114,17 +105,23 @@ document.addEventListener('DOMContentLoaded', () => {
         renderItems(filteredItems);
     };
 
+    /**
+     * Initializes the page by fetching data and setting up event listeners.
+     */
     const initializePage = () => {
         try {
-            const storedItems = JSON.parse(localStorage.getItem('itemsForSale'));
-            if (Array.isArray(storedItems) && storedItems.length > 0) {
-                allItems = storedItems;
-            } else {
-                allItems = defaultItems;
+            const storedItems = JSON.parse(localStorage.getItem('itemsForSale')) || defaultGiveawayItems;
+            // Filter all items to only show 'Giveaway' or 'Exchange'
+            allItems = storedItems.filter(item => item.listingType === 'Giveaway' || item.listingType === 'Exchange');
+
+            // If after filtering localStorage is empty, use the default giveaway/exchange items
+            if (allItems.length === 0) {
+                 allItems = defaultGiveawayItems;
             }
+
         } catch (error) {
             console.error("Could not parse items from localStorage, using default items.", error);
-            allItems = defaultItems;
+            allItems = defaultGiveawayItems;
         }
 
         if (searchBar) searchBar.addEventListener('input', filterAndRender);

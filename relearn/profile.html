@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - ReLearN</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Profile-specific Stylesheet -->
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body class="bg-blue-50 font-poppins pt-20">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-white p-2 w-full shadow-md z-20">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="welcome.html" class="flex items-center space-x-3">
+                <img src="https://res.cloudinary.com/diy6nhly9/image/upload/v1757664318/Unconfirmed_12918_lkc7vq.png" alt="ReLearN Logo" class="h-10 w-auto">
+                <h1 class="text-xl font-bold tracking-wider text-blue-600">ReLearN</h1>
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="message.html" title="Messages">
+                    <svg class="w-8 h-8 text-blue-600 hover:text-blue-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                </a>
+                <a href="profile.html" title="Profile" class="flex items-center space-x-2">
+                    <img id="nav-profile-pic" src="https://res.cloudinary.com/diy6nhly9/image/upload/v1757780138/pngtree-man-icon-vector-blue-circle-isolated-on-white-background-png-image_4775380_ri82oj.png" alt="Profile" class="h-10 w-10 rounded-full object-cover">
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-10 px-4">
+        <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-4xl mx-auto">
+            
+            <!-- Profile Header -->
+            <div class="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left space-y-4 sm:space-y-0 sm:space-x-8 mb-8">
+                <img id="profile-main-pic" src="https://res.cloudinary.com/diy6nhly9/image/upload/v1757780138/pngtree-man-icon-vector-blue-circle-isolated-on-white-background-png-image_4775380_ri82oj.png" alt="Profile Picture" class="w-32 h-32 rounded-full border-4 border-blue-200 object-cover">
+                <div>
+                    <h2 id="profile-name" class="text-3xl font-bold text-gray-800">Your Name</h2>
+                    <p id="profile-branch" class="text-gray-500">Your Branch, Your Semester</p>
+                    <div class="flex justify-center sm:justify-start items-center mt-2">
+                        <span class="text-yellow-400">★★★★☆</span>
+                        <span class="ml-2 text-sm text-gray-600">(4.0)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-blue-50 p-4 rounded-lg text-center">
+                    <p class="text-3xl font-bold text-blue-600">12</p>
+                    <p class="text-gray-600">Items Purchased</p>
+                </div>
+                <div class="bg-green-50 p-4 rounded-lg text-center">
+                    <p id="items-listed-count" class="text-3xl font-bold text-green-600">0</p>
+                    <p class="text-gray-600">Items Listed</p>
+                </div>
+                <div class="bg-yellow-50 p-4 rounded-lg text-center">
+                    <p class="text-3xl font-bold text-yellow-600">2</p>
+                    <p class="text-gray-600">Giveaways</p>
+                </div>
+            </div>
+            
+            <!-- My Listings Section -->
+            <div class="border-t border-gray-200 pt-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">My Current Listings</h3>
+                <div id="my-items-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- User's listed items will be populated here by JavaScript -->
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Profile-specific JavaScript -->
+    <script src="js/profile.js"></script>
+</body>
+</html>
+

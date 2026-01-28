@@ -1,0 +1,20 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Default body font */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Style the carousel items */
+.carousel-item {
+    background-color: #f0f4f8; /* A light grey fallback color */
+}
+
+/* Ensure carousel images fit without being cropped or zoomed */
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit:auto ; /* This prevents zooming */
+}
+

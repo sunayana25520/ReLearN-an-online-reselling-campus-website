@@ -1,0 +1,55 @@
+/*
+General styles for the messaging UI
+*/
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #F0F4FF;
+  overflow: hidden; /* Prevent scrolling on the main page */
+}
+
+/* Ensure the main container takes up the full height */
+main {
+  height: calc(100vh - 4rem); /* Full viewport height minus navbar */
+}
+
+/* Conversation list styling */
+#conversations-list .conversation-item {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  padding: 0.5rem 0.75rem;
+}
+
+#conversations-list .conversation-item:hover {
+  background-color: #F3F4F6; /* gray-100 */
+}
+
+#conversations-list .conversation-item.active {
+  background-color: #DBEAFE; /* blue-200 */
+  border-right: 4px solid #2563EB; /* blue-600 */
+}
+
+/* Message bubble styling */
+.message-bubble {
+  max-width: 75%;
+  padding: 0.75rem 1rem;
+  border-radius: 1.25rem; /* 20px */
+  word-wrap: break-word;
+  box-sizing: border-box;
+}
+
+/* Sent (outgoing) message */
+.message-bubble.sent {
+  background-color: #2563EB; /* blue-600 */
+  color: #ffffff;
+  margin-left: auto;
+  border-bottom-right-radius: 0.25rem;
+}
+
+/* Received (incoming) message */
+.message-bubble.received {
+  background-color: #E5E7EB; /* gray-200 */
+  color: #1F2937; /* gray-800 */
+  margin-right: auto;
+  border-bottom-left-radius: 0.25rem;
+}

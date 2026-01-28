@@ -1,0 +1,78 @@
+/* General body styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #F0F4FF;
+}
+
+/* Styles for the dynamically created item cards in the user's profile */
+.my-item-card {
+  background-color: #fff;
+  border-radius: 0.75rem; /* 12px */
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.my-item-card-image {
+  height: 160px; /* A bit smaller for a compact profile view */
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.my-item-card-body {
+  padding: 1rem; /* 16px */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-item-card-title {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600; /* semibold */
+  color: #1f2937; /* gray-800 */
+  margin-bottom: 0.5rem; /* 8px */
+}
+
+.my-item-card-details {
+  font-size: 0.875rem; /* 14px */
+  color: #4b5563; /* gray-600 */
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.my-item-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-listing-type-profile {
+  font-size: 0.75rem; /* 12px */
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px; /* pill shape */
+  color: white;
+}
+
+/* Colors for listing types */
+.for-sale { background-color: #2563EB; }   /* blue-600 */
+.exchange { background-color: #D97706; }   /* amber-600 */
+.giveaway { background-color: #16A34A; }   /* green-600 */
+
+.delete-button {
+  background-color: #EF4444; /* red-500 */
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem; /* 6px */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #DC2626; /* red-600 */
+}

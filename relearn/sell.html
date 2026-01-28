@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell an Item - ReLearN</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/sell.css">
+</head>
+<body class="bg-blue-50 font-poppins pt-20">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-blue-100 p-2 w-full shadow-md z-20">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo and Title -->
+            <a href="welcome.html" class="flex items-center space-x-3">
+                <img src="https://res.cloudinary.com/diy6nhly9/image/upload/v1757664318/Unconfirmed_12918_lkc7vq.png" alt="ReLearN Logo" class="h-10 w-auto">
+                <h1 class="text-xl font-bold tracking-wider text-blue-600">ReLearN</h1>
+            </a>
+            
+            <!-- Desktop Icons -->
+            <div class="hidden md:flex items-center space-x-4" id="desktop-menu">
+                <!-- Links will be added by global.js -->
+            </div>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-blue-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white container mx-auto py-2">
+            <!-- Mobile links will be added by global.js -->
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-10 px-4">
+        <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-blue-600 mb-6">List item to sell</h2>
+            
+            <form id="sell-form" class="space-y-6">
+                <!-- Item Title -->
+                <div>
+                    <label for="item-title" class="block text-sm font-medium text-gray-700">Item Title</label>
+                    <input type="text" id="item-title" name="item-title" required
+                           class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <!-- Category -->
+                <div>
+                    <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+                    <select id="category" name="category" required
+                            class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Select a category</option>
+                        <option value="Drafter">Drafter</option>
+                        <option value="Lab Apron">Lab Apron</option>
+                        <option value="Drawing Kit">Drawing Kit</option>
+                        <option value="Calculator">Calculator</option>
+                        <option value="Textbooks">Textbooks</option>
+                        <option value="Lab Materials">Lab Materials</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <!-- Item Condition -->
+                <div>
+                    <label for="condition" class="block text-sm font-medium text-gray-700">Item Condition</label>
+                    <select id="condition" name="condition" required
+                            class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Select condition</option>
+                        <option value="New">New</option>
+                        <option value="Good">Good</option>
+                        <option value="Fair">Fair</option>
+                    </select>
+                </div>
+
+                <!-- Description -->
+                <div>
+                    <label for="description" class="block text-sm font-medium text-gray-700">Short Description</label>
+                    <textarea id="description" name="description" rows="3" required placeholder="A brief summary of the item."
+                              class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
+                </div>
+
+                <!-- Listing Type -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Listing Type</label>
+                    <div class="mt-2 grid grid-cols-3 gap-3">
+                        <div class="relative">
+                            <input class="sr-only peer" type="radio" id="for-sale" name="listingType" value="For Sale" checked>
+                            <label for="for-sale" class="radio-label">For Sale</label>
+                        </div>
+                        <div class="relative">
+                            <input class="sr-only peer" type="radio" id="exchange" name="listingType" value="Exchange">
+                            <label for="exchange" class="radio-label">Exchange</label>
+                        </div>
+                        <div class="relative">
+                            <input class="sr-only peer" type="radio" id="giveaway" name="listingType" value="Giveaway">
+                            <label for="giveaway" class="radio-label">Giveaway</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price (conditional) -->
+                <div id="price-container">
+                    <label for="price" class="block text-sm font-medium text-gray-700">Price (₹)</label>
+                    <input type="number" id="price" name="price" placeholder="e.g., 250"
+                           class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                
+                <!-- Image Upload -->
+                <div>
+                    <label for="item-image" class="block text-sm font-medium text-gray-700">Upload Image</label>
+                    <input type="file" id="item-image" name="item-image" accept="image/*" required
+                           class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-600 hover:file:bg-blue-100">
+                </div>
+
+                <!-- Submit Button -->
+                <div>
+                    <button type="submit"
+                            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Add Item 
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Global JS for nav bar logic -->
+    <script src="js/exchange.js"></script>
+    <!-- Page-specific JS -->
+    <script src="js/sell.js"></script>
+</body>
+</html>
+

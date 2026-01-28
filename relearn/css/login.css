@@ -1,8 +1,19 @@
-/* Imports the Poppins font for the page */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+/* Google Fonts Import */
+@import url('https://www.google.com/search?q=https://fonts.googleapis.com/css2%3Ffamily%3DPoppins:wght%40400%3B600%3B700%26display%3Dswap');
 
-/* Applies the Poppins font to the entire body */
+/* Default body font */
 body {
-    font-family: 'Poppins', sans-serif;
+font-family: 'Poppins', sans-serif;
 }
 
+#login-background {
+/* Apply the background image and a light blue overlay */
+background-image:
+linear-gradient(rgba(25, 118, 210, 0.5), rgba(25, 118, 210, 0.5)),
+url('https://res.cloudinary.com/diy6nhly9/image/upload/v1757749064/1486383923cvr5_sgsdzd.webp');
+
+background-size: cover;
+background-position: center;
+background-attachment: fixed; /* Keeps the background stationary on scroll */
+
+}

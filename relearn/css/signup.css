@@ -6,5 +6,16 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* You can add any additional signup-page-specific styles here if needed */
+#signup-background {
+    /* Apply the background image and a light blue overlay */
+    background-image: 
+        /* This linear-gradient creates the light blue shade from #1976D2 */
+        linear-gradient(rgba(25, 118, 210, 0.5), rgba(25, 118, 210, 0.5)),
+        /* This is the background image */
+        url('https://res.cloudinary.com/diy6nhly9/image/upload/v1757749064/1486383923cvr5_sgsdzd.webp');
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background stationary on scroll */
+}
 

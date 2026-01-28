@@ -28,7 +28,8 @@ document.getElementById('signup-form').addEventListener('submit', function(event
     // If all checks pass, proceed with the simulated form submission.
     console.log("Form submitted successfully (simulation).");
     alert("Account created successfully! Please log in.");
-    // In a real application, you would redirect to the login page like this:
-    // window.location.href = 'login.html';
+    
+    // Redirect to the login page after successful signup.
+    window.location.href = 'login.html';
 });
 
