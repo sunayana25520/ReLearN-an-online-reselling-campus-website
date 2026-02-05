@@ -6,6 +6,7 @@
     <title>Sell an Item - ReLearN</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="backend/guard.js"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
@@ -131,6 +132,224 @@
             </form>
         </div>
     </main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - ReLearN</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Welcome-specific Stylesheet -->
+    <link rel="stylesheet" href="css/welcome.css">
+</head>
+<body class="bg-white font-poppins pt-14">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-blue-100 p-2 w-full shadow-md z-20">
+        <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo and Title -->
+            <a href="welcome.html" class="flex items-center space-x-3">
+                <img src="https://res.cloudinary.com/diy6nhly9/image/upload/v1757664318/Unconfirmed_12918_lkc7vq.png" alt="ReLearN Logo" class="h-10 w-auto">
+                <h1 class="text-xl font-bold tracking-wider text-[#1976D2]">ReLearN</h1>
+            </a>
+
+            <!-- Desktop Icons -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="message.html" title="Messages">
+                        <svg class="w-8 h-8 text-[#1976D2] hover:text-[#1565C0]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                </a>
+                <a href="profile.html" title="Profile">
+                    <img src="https://res.cloudinary.com/diy6nhly9/image/upload/v1757780138/pngtree-man-icon-vector-blue-circle-isolated-on-white-background-png-image_4775380_ri82oj.png" alt="Profile" class="h-10 w-10 rounded-full">
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-[#1976D2] focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden container mx-auto py-2">
+            <a href="profile.html" class="block text-center text-[#1976D2] font-semibold py-2 rounded hover:bg-blue-200">Profile</a>
+            <a href="message.html" class="block text-center text-[#1976D2] font-semibold py-2 rounded hover:bg-blue-200">Messages</a>
+        </div>
+    </nav>
+
+    <!-- Image Carousel (Bootstrap) -->
+    <section id="carouselExample" class="carousel slide mt-4" style="height: 60vh;" data-bs-ride="carousel">
+        <div class="carousel-inner h-full">
+            <div class="carousel-item active h-full">
+                <img src="https://res.cloudinary.com/diy6nhly9/image/upload/v1759485664/360_F_364571578_w0SMRyDc6mE2H6ZKAUcffeUqrsMW79Vt_t3xukh.jpg" class="d-block w-100" alt="Educational Materials">
+            </div>
+            <div class="carousel-item h-full">
+                <img src="https://res.cloudinary.com/diy6nhly9/image/upload/v1759485658/images_5_ei1jss.jpg" class="d-block w-100" alt="Study Setup">
+            </div>
+             <div class="carousel-item h-full">
+                <img src="https://res.cloudinary.com/diy6nhly9/image/upload/v1759485654/blue-background-with-school-stationary-it-notebook-pencils-pens-other-tools-banner-website_1257429-42321_wkrm44.avif" class="d-block w-100" alt="Stationery">
+            </div>
+            <div class="carousel-item h-full">
+                <img src="https://res.cloudinary.com/diy6nhly9/image/upload/v1759327573/273085_965340_obaovk.web" class="d-block w-100" alt="Campus Life">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </section>
+
+    <!-- Main Content -->
+    <main class="py-16 px-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-[#1976D2] mb-2">Welcome to ReLearN!</h1>
+            <p class="text-gray-600 mb-8">Your journey to smart savings and sustainable living starts here. What would you like to do today?</p>
+
+            <!-- Action Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Card 1: Sell -->
+                <a href="sell.html" class="bg-blue-100 p-6 rounded-lg shadow-lg text-center flex flex-col items-center transition-transform duration-300 hover:scale-105">
+                    <img src="https://res.cloudinary.com/diy6nhly9/image/upload/v1757755990/Gemini_Generated_Image_3qysrz3qysrz3qys_rfexmb.png" alt="Sell" class="h-24 w-24 mb-4 object-contain"/>
+                    <h3 class="text-2xl font-bold text-[#1976D2] mb-2">Sell Items</h3>
+                    <p class="text-gray-600">Have something you don't need? List it for sale in minutes.</p>
+                </a>
+
+                <!-- Card 2: Buy -->
+                <a href="buy.html" class="bg-blue-100 p-6 rounded-lg shadow-lg text-center flex flex-col items-center transition-transform duration-300 hover:scale-105">
+                    <img src="https://res.cloudinary.com/diy6nhly9/image/upload/v1757753656/Gemini_Generated_Image_phfolcphfolcphfo_simqxk.png" alt="Buy" class="h-24 w-24 mb-4 object-contain"/>
+                    <h3 class="text-2xl font-bold text-[#1976D2] mb-2">Buy Items</h3>
+                    <p class="text-gray-600">Find affordable essentials from fellow students on campus.</p>
+                </a>
+
+                <!-- Card 3: Giveaway -->
+                <a href="giveaway.html" class="bg-blue-100 p-6 rounded-lg shadow-lg text-center flex flex-col items-center transition-transform duration-300 hover:scale-105">
+                    <img src="https://res.cloudinary.com/diy6nhly9/image/upload/v1757755982/Gemini_Generated_Image_pw1okhpw1okhpw1o_zhypx7.png" alt="Giveaway" class="h-24 w-24 mb-4 object-contain"/>
+                    <h3 class="text-2xl font-bold text-[#1976D2] mb-2">Giveaway</h3>
+                    <p class="text-gray-600">Share items for free with students who might need them.</p>
+                </a>
+
+                <!-- Card 4: Exchange -->
+                <a href="exchange.html" class="bg-blue-100 p-6 rounded-lg shadow-lg text-center flex flex-col items-center transition-transform duration-300 hover:scale-105">
+                    <img src="https://img.icons8.com/plasticine/100/000000/data-in-both-directions.png" alt="Exchange" class="h-24 w-24 mb-4"/>
+                    <h3 class="text-2xl font-bold text-[#1976D2] mb-2">Exchange</h3>
+                    <p class="text-gray-600">Swap items with others instead of buying or selling.</p>
+                </a>
+
+            </div>
+        </div>
+    </main>
+        <!-- Items Section -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row rounded-lg shadow-2xl overflow-hidden">
+                <!-- Left Side (Blue) -->
+                <div class="w-full md:w-1/2 bg-[#1976D2] p-10 md:p-12 text-white flex flex-col justify-center">
+                    <h2 class="text-4xl font-bold mb-4">Find Everything You Need</h2>
+                    <p class="text-lg opacity-90">From textbooks to lab coats, discover a wide range of college essentials being resold by your peers right here on campus.</p>
+                </div>
+                <!-- Right Side (White) with Grid -->
+                <div class="w-full md:w-1/2 bg-white p-10 md:p-12">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Popular Categories</h3>
+                    <div class="grid grid-cols-2 gap-4 text-gray-700">
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Drafters & Kits</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Lab Aprons & Coats</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Textbooks & Notes</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Calculators</span>
+                        </div>
+                         <div class="flex items-center">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>Lab Materials</span>
+                        </div>
+                         <div class="flex items-center">
+                            <svg class="w-6 h-6 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <span>And much more...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="bg-[#1976D2] py-16 px-4">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center justify-center rounded-lg overflow-hidden">
+                <!-- Left Side (Text) -->
+                <div class="w-full md:w-1/2 p-10 text-white text-center md:text-left">
+                    <h2 class="text-4xl font-extrabold mb-6">Join the Movement!</h2>
+                    <ul class="space-y-3 text-lg">
+                        <li class="flex items-start">
+                             <span class="mr-2 mt-1">&#10148;</span>
+                            <span><strong>R</strong>euse semester-specific items like drafters, aprons, calculators, and drawing kits.</span>
+                        </li>
+                        <li class="flex items-start">
+                             <span class="mr-2 mt-1">&#10148;</span>
+                           <span><strong>E</strong>conomize by saving money on materials needed only for a short time.</span>
+                        </li>
+                        <li class="flex items-start">
+                             <span class="mr-2 mt-1">&#10148;</span>
+                            <span><strong>L</strong>ink with fellow students to easily buy, sell, or give away items.</span>
+                        </li>
+                        <li class="flex items-start">
+                              <span class="mr-2 mt-1">&#10148;</span>
+                            <span><strong>E</strong>mpower your peers with affordable and accessible resources.</span>
+                        </li>
+                         <li class="flex items-start">
+                              <span class="mr-2 mt-1">&#10148;</span>
+                            <span><strong>A</strong>void waste by passing on materials instead of storing or discarding them.</span>
+                        </li>
+                         <li class="flex items-start">
+                              <span class="mr-2 mt-1">&#10148;</span>
+                            <span><strong>R</strong>esource-sharing made simple through the ReLearN platform.</span>
+                        </li>
+                         <li class="flex items-start">
+                              <span class="mr-2 mt-1">&#10148;</span>
+                            <span><strong>N</strong>urture a sustainable campus culture of collaboration and support.</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Right Side (GIF) -->
+                <div class="w-full md:w-1/2 p-10 flex justify-center">
+                    <img src="https://media.giphy.com/media/l4FGpP4e6qa339Mbu/giphy.gif" alt="Recycle GIF" class="rounded-lg shadow-lg w-64 h-64">
+                </div>
+            </div>
+        </div>
+    </section>
+    import { supabase } from "./supabase.js";
+
+const { data: { session } } = await supabase.auth.getSession();
+
+if (!session) {
+  window.location.href = "login.html";
+}
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Welcome-specific JavaScript -->
+    <script src="js/welcome.js"></script>
+</body>
+</html>
 
     <!-- Global JS for nav bar logic -->
     <script src="js/exchange.js"></script>

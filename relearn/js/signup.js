@@ -1,35 +1,45 @@
-// This file handles the form validation for the signup page.
+import { signupUser } from "../backend/auth.js";
 
-console.log("ReLearN Signup Page Loaded!");
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("signup-form");
 
-document.getElementById('signup-form').addEventListener('submit', function(event) {
-    // Prevent the form from submitting by default to allow for custom validation
-    event.preventDefault(); 
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
-    
-    // Regex to validate the email format, must end in @mictech.edu.in
-    const emailPattern = /[a-zA-Z0-9._%+-]+@mictech\.edu\.in$/;
+    const fullname = document.getElementById("fullname").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const regno = document.getElementById("regno").value.trim();
+    const department = document.getElementById("department").value;
+    const semester = document.getElementById("semester").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
 
-    // First, check if the email format is incorrect.
+    // College email check
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@mictech\.edu\.in$/;
     if (!emailPattern.test(email)) {
-        alert("Please enter a valid college email address ending in @mictech.edu.in.");
-        return; // Stop the function here if the email is invalid
+      alert("Use your @mictech.edu.in email");
+      return;
     }
 
-    // Next, check if the passwords do not match.
     if (password !== confirmPassword) {
-        alert("Passwords do not match. Please try again.");
-        return; // Stop the function here if passwords don't match
+      alert("Passwords do not match");
+      return;
     }
 
-    // If all checks pass, proceed with the simulated form submission.
-    console.log("Form submitted successfully (simulation).");
-    alert("Account created successfully! Please log in.");
-    
-    // Redirect to the login page after successful signup.
-    window.location.href = 'login.html';
-});
+    try {
+      await signupUser({
+        email,
+        password,
+        fullname,
+        regno,
+        department,
+        semester
+      });
 
+      alert("Signup successful! Check your email for verification.");
+      window.location.href = "login.html";
+    } catch (err) {
+      alert(err.message);
+    }
+  });
+});
