@@ -1,17 +1,59 @@
-/* Styles specific to index.html */
+Styles specific to index.html
 body {
     /* Sets the default font for the page, as imported in the HTML */
     font-family: 'Poppins', sans-serif;
 }
 
 #hero-section {
-    /* This creates the background effect:
-      1. A semi-transparent blue linear-gradient for the "blue effect".
-      2. The college background image URL.
-    */
-    background-image: linear-gradient(rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.3)), url('https://res.cloudinary.com/diy6nhly9/image/upload/q_auto,f_auto/v1757657459/2_ryvu5x.jpg');
+    /** * Unified Blue Shade Overlay:
+     * Using the requested rgb(59 130 246 / 0.5) to create a consistent
+     * blue tint over the college background image.
+     */
+    background: linear-gradient(
+        135deg, 
+        rgba(59, 130, 246, 0.5) 0%, 
+        rgba(59, 130, 246, 0.5) 100%
+    ), 
+    url('https://res.cloudinary.com/diy6nhly9/image/upload/q_auto,f_auto/v1757657459/2_ryvu5x.jpg');
     
     /* Ensures the image covers the whole area without distortion */
     background-size: cover;
     background-position: center;
+    
+    /* FIXed movement: 
+       Changed from 'fixed' to 'scroll' so the image moves 
+       up/down along with the rest of the page elements.
+    */
+    background-attachment: scroll; 
+    
+    /* Softens the image details so they don't clash with the text */
+    backdrop-filter: blur(1px);
+}
+
+/* Contrast adjustments for the blue theme */
+#hero-section h2 {
+    color: #ffffff; /* White text for better visibility on blue tint */
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#hero-section p {
+    color: #f1f5f9; /* Light slate gray for secondary text */
+}
+
+/* Adjusting the main button to stand out against the blue shade */
+#hero-section a.bg-white {
+    border: 1px solid #e2e8f0;
+    color: #1976D2;
+}
+
+#hero-section a.bg-\[\#1976D2\] {
+    background-color: #1976D2;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+/* Keeping the Nav matching the theme */
+nav.fixed {
+    backdrop-filter: blur(12px);
+    background-color: rgba(25, 118, 210, 0.9);
 }
